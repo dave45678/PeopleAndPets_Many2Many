@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Form</title>
+</head>
+<body>
+        <form th:action="@{/savepet}" th:object="${aPet}" method="post">
+                    <div class="container">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="text" th:field="*{petName}">
+                        <select th:field="*{owners}" multiple>
+                            <option th:each ="eachOwner:${petowners}" th:value="${eachOwner.id}" th:text="${eachOwner.myName}"></option>
+                        </select>
+                    </div>
+
+            <button type="submit">Save Pet</button>
+        </form>
+</body>
+</html>

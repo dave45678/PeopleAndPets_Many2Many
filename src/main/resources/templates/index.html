@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pets and owners</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Pets and their Owners</h1>
+        <div th:each="eachOwner:${ownerlist}">
+            <h2 th:text="${eachOwner.myName}"></h2>
+            <h3 th:text="${#lists.size(eachOwner.pets)>0}?'My Pets':'No pets for me'"></h3>
+                <div th:each="eachPet:${eachOwner.pets}">
+                    <p th:text="${eachPet.petName}"></p>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
