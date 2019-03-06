@@ -12,7 +12,7 @@ public class Pet {
 
     private String petName;
 
-    @ManyToMany()
+    @ManyToMany
     private Set<Person> owners;
 
     public Pet() {
