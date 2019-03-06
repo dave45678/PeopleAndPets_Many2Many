@@ -1,33 +1,45 @@
 package me.afua.demo;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
-public class Owners {
-    
-    @NotNull
-    private long ownerId;
+public class OwnersAndPets {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @NotNull
-    private long petId;
+    @ManyToOne
+    private Person owner;
 
-    public Owners() {
+    @NotNull
+    @ManyToOne
+    private Pet pet;
+
+    public long getId() {
+        return id;
     }
 
-    public long getOwnerId() {
-        return ownerId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setOwnerId(long ownerId) {
-        this.ownerId = ownerId;
+    public Person getOwner() {
+        return owner;
     }
 
-    public long getPetId() {
-        return petId;
+    public void setOwner(Person owner) {
+        this.owner = owner;
     }
 
-    public void setPetId(long petId) {
-        this.petId = petId;
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }

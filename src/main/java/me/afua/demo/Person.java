@@ -12,12 +12,12 @@ public class Person {
 
     private String myName;
 
-    @ManyToMany(mappedBy = "owners")
-    private Set<Pet> pets;
+    @OneToMany(mappedBy = "pet")
+    private Set<OwnersAndPets> pets;
 
-    public Person() {
-        pets = new HashSet<>();
-    }
+//    @ManyToMany(mappedBy = "owners")
+//    private Set<Pet> pets;
+
 
     public long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Person {
         this.myName = myName;
     }
 
-    public Set<Pet> getPets() {
+    public Set<OwnersAndPets> getPets() {
         return pets;
     }
 
-    public void setPets(Set<Pet> pets) {
+    public void setPets(Set<OwnersAndPets> pets) {
         this.pets = pets;
     }
 }

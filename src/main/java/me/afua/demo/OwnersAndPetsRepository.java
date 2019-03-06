@@ -1,4 +1,7 @@
 package me.afua.demo;
 
-public class OwnersAndPetsRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface OwnersAndPetsRepository
+        extends CrudRepository<OwnersAndPets,Long> {
 }
